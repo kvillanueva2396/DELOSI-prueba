@@ -15,7 +15,7 @@ describe('MatrixInput component', () => {
 		render(<MatrixInput onMatrixChange={mockOnMatrixChange} />)
 
 		const input = screen.getByLabelText(/Matriz Input:/i)
-		const clearButton = screen.getByRole('button', { name: /Limpiar/i }) // Use getByRole with i for case-insensitive matching
+		const clearButton = screen.getByRole('button', { name: /Limpiar/i })
 		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i })
 
 		expect(input).toBeInTheDocument()
@@ -29,7 +29,7 @@ describe('MatrixInput component', () => {
 		const input = screen.getByLabelText(/Matriz Input:/i)
 		fireEvent.change(input, { target: { value: '[1,2],[3,4]' } })
 
-		expect(screen.getByDisplayValue(/\[1,2\],\[3,4\]/i)).toBeInTheDocument() // Improved assertion for array format
+		expect(screen.getByDisplayValue(/\[1,2\],\[3,4\]/i)).toBeInTheDocument()
 	})
 
 	it('Debe usarse el evento onMatrixChange con una matriz cuadrada valida', () => {
@@ -51,7 +51,7 @@ describe('MatrixInput component', () => {
 		render(<MatrixInput onMatrixChange={mockOnMatrixChange} />)
 
 		const input = screen.getByLabelText(/Matriz Input:/i)
-		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i }) // Typo corrected
+		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i })
 
 		fireEvent.change(input, { target: { value: '{"a": 1, "b": 2}' } })
 		fireEvent.submit(submitButton)
@@ -65,7 +65,7 @@ describe('MatrixInput component', () => {
 		render(<MatrixInput onMatrixChange={mockOnMatrixChange} />)
 
 		const input = screen.getByLabelText(/Matriz Input:/i)
-		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i }) // Typo corrected
+		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i })
 
 		fireEvent.change(input, { target: { value: '[1, 2, 3]' } })
 		fireEvent.submit(submitButton)
@@ -77,7 +77,7 @@ describe('MatrixInput component', () => {
 		render(<MatrixInput onMatrixChange={mockOnMatrixChange} />)
 
 		const input = screen.getByLabelText(/Matriz Input:/i)
-		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i }) // Typo corrected
+		const submitButton = screen.getByRole('button', { name: /Rotar Matriz/i })
 
 		fireEvent.change(input, { target: { value: '[[1,2],[3]]' } })
 		fireEvent.submit(submitButton)
