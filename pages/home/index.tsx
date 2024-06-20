@@ -11,6 +11,10 @@ export default function Home() {
 		setRotatedMatrix(rotateMatrix(newMatrix))
 	}
 
+	const handleMatrixClean = () => {
+		setRotatedMatrix([])
+	}
+
 	return (
 		<div>
 			<Head>
@@ -20,7 +24,7 @@ export default function Home() {
 			</Head>
 			<div className="home">
 				<h1>Prueba Tecnica - Rotar matriz en sentido horario</h1>
-				<MatrixInput onMatrixChange={handleMatrixChange} />
+				<MatrixInput onClean={handleMatrixClean} onMatrixChange={handleMatrixChange} />
 				<MatrixDisplay matrix={rotatedMatrix} />
 			</div>
 		</div>

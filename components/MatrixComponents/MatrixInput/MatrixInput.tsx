@@ -3,9 +3,10 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 interface Props {
 	onMatrixChange: (matrix: number[][]) => void
+	onClean: () => void
 }
 
-const MatrixInput = ({ onMatrixChange }: Props) => {
+const MatrixInput = ({ onMatrixChange, onClean }: Props) => {
 	const [matrix, setMatrix] = useState('')
 	const [error, setError] = useState('')
 
@@ -35,6 +36,12 @@ const MatrixInput = ({ onMatrixChange }: Props) => {
 		}
 	}
 
+	const handleClean = () => {
+		onClean()
+		setMatrix('')
+		setError('')
+	}
+
 	return (
 		<form className="matrix-input" onSubmit={handleSubmit}>
 			<label>
@@ -42,7 +49,7 @@ const MatrixInput = ({ onMatrixChange }: Props) => {
 			</label>
 
 			<div className="input-buttons">
-				<button className="input-buttons__clean" type="button" onClick={() => setMatrix('')}>
+				<button className="input-buttons__clean" type="button" onClick={handleClean}>
 					Limpiar
 				</button>
 				<button className="input-buttons__submit" type="submit">
